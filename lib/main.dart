@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graphical_password_auth/screens/login_screen.dart';
 import 'package:graphical_password_auth/screens/register_screen.dart';
 
 void main() {
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RegisterScreen.id,
+      initialRoute:RegisterPage.id,
       routes: {
-        RegisterScreen.id: (context) => const RegisterScreen(),
+        RegisterPage.id: (context) => RegisterPage(),
+         LoginPage.id: (context) => LoginPage(),
       },
     );
   }
