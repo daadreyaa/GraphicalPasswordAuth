@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:graphical_password_auth/screens/check_pattern_page.dart';
+import 'package:graphical_password_auth/screens/pattern_page.dart';
 import 'package:graphical_password_auth/screens/register_screen.dart';
+import 'package:graphical_password_auth/screens/select_option.dart';
+import 'package:graphical_password_auth/screens/shuffled_numbers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +20,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RegisterScreen.id,
+      initialRoute: SelectOption.id,
       routes: {
         RegisterScreen.id: (context) => const RegisterScreen(),
+        SelectOption.id: (context) => const SelectOption(),
+        PatternPage.id: (context) => const PatternPage(),
+        CheckPatternPage.id: (context) => const CheckPatternPage(),
+        ShuffledNumbers.id: (context) => const ShuffledNumbers(),
       },
     );
   }
