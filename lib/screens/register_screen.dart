@@ -22,9 +22,9 @@ class _RegisterPageState extends State<RegisterPage> {
   
                 String? selectedValue;
 List<String> items = [
-  'Puzzle 1',
-  'Puzzle 2',
-  'Puzzle 3',
+  'Padlock',
+  'Shuffled  Dial',
+  'Concentric Puzzle',
   
 ];
 

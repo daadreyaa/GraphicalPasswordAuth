@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:graphical_password_auth/screens/register_screen.dart';
+import 'package:graphical_password_auth/screens/select_option.dart';
 
 
 
@@ -175,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 height: 50,
                 child: const Center(child: const Text("Sign In"))),
-            onPressed: () => print("it's pressed"),
+            onPressed: () => Navigator.pushNamed(context, SelectOption.id),
             style: ElevatedButton.styleFrom(
               primary: Colors.deepPurple,
               onPrimary: Colors.white,
@@ -319,7 +318,7 @@ class Menu extends StatelessWidget {
 
   
 
-  Widget _loginWithButton({required String image, bool isActive = false}) {
+  Widget _loginWithButton({required String image, bool isActive = true}) {
     return Container(
       width: 90,
       height: 70,

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: SelectOption.id,
+      initialRoute: RegisterPage.id,
       routes: {
         RegisterPage.id: (context) =>  RegisterPage(),
         SelectOption.id: (context) => const SelectOption(),

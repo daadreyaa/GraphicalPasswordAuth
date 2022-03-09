@@ -88,6 +88,7 @@ class _PatternPageState extends State<PatternPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: const Text("Big Pattern"),
       ),
       body: Column(

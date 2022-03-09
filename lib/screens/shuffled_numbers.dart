@@ -52,7 +52,10 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                         width: 20.0,
                       ),
                       Text(
-                        'Entered Password : ' + (isObscure ? password : password.replaceAll(RegExp(r"."), "*")),
+                        'Entered Password : ' +
+                            (isObscure
+                                ? password
+                                : password.replaceAll(RegExp(r"."), "*")),
                         style: const TextStyle(
                           color: Colors.pink,
                           fontSize: 30.0,
@@ -62,7 +65,8 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                   ),
                   const SizedBox(height: 40.0),
                   GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 5,
                       childAspectRatio: 1.5,
                     ),
@@ -71,15 +75,32 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
-                          setState(() {
-                            password = password + numbers[index].toString();
-                          });
+                          if (password.length > 20) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  "Max digits is 20",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            );
+                          } else {
+                            setState(() {
+                              password = password + numbers[index].toString();
+                            });
+                          }
+                          ;
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            color: Colors.amber,
-                            child: Center(child: Text('${numbers[index]}')),
+                            decoration: BoxDecoration(
+                              color: Colors.amber,
+                             
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            
+                            child: Center(child: Text('${numbers[index]}',style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),)),
                           ),
                         ),
                       );
@@ -94,15 +115,6 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                           const SnackBar(
                             content: Text(
                               "Enter min 8 digits",
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                        );
-                      } else if (password.length > 20) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              "Max digits is 20",
                               style: TextStyle(color: Colors.red),
                             ),
                           ),
