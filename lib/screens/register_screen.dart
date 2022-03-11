@@ -15,28 +15,23 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailAddressController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
-  bool _isBackPressedOrTouchedOutSide = false,
-      _isDropDownOpened = false,
-      _isPanDown = false;
+  bool _isBackPressedOrTouchedOutSide = false, _isDropDownOpened = false, _isPanDown = false;
   String _selectedItem = '';
-  
-                String? selectedValue;
-List<String> items = [
-  'Padlock',
-  'Shuffled  Dial',
-  'Concentric Puzzle',
-  
-];
+
+  String? selectedValue;
+  List<String> items = [
+    'Padlock',
+    'Shuffled  Dial',
+    'Concentric Puzzle',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFf5f5f5),
       body: ListView(
-        padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width / 8),
+        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 8),
         children: [
-          Menu(),
           // MediaQuery.of(context).size.width >= 980
           //     ? Menu()
           //     : SizedBox(), // Responsive
@@ -60,8 +55,7 @@ List<String> items = [
                     ),
                     const Text(
                       "If you already have an account",
-                      style: TextStyle(
-                          color: Colors.black54, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
@@ -70,20 +64,16 @@ List<String> items = [
                       children: [
                         const Text(
                           "You can",
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 15),
                         InkWell(
                           onTap: () {
-                              Navigator.pushNamed(context, LoginPage.id);
+                            Navigator.pushNamed(context, LoginPage.id);
                           },
                           child: const Text(
                             "Sign In!",
-                            style: TextStyle(
-                                color: Colors.deepPurple,
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -107,8 +97,7 @@ List<String> items = [
               //       )
               //     : SizedBox(),
               Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: MediaQuery.of(context).size.height / 6),
+                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height / 6),
                 child: Container(
                   width: 320,
                   child: Column(
@@ -122,13 +111,11 @@ List<String> items = [
                           labelStyle: const TextStyle(fontSize: 12),
                           contentPadding: const EdgeInsets.only(left: 30),
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
@@ -145,9 +132,7 @@ List<String> items = [
                               () => passwordVisibility = !passwordVisibility,
                             ),
                             child: Icon(
-                              passwordVisibility
-                                  ? Icons.visibility_outlined
-                                  : Icons.visibility_off_outlined,
+                              passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                               color: const Color(0xFF95A1AC),
                               size: 22,
                             ),
@@ -157,42 +142,37 @@ List<String> items = [
                           labelStyle: const TextStyle(fontSize: 12),
                           contentPadding: const EdgeInsets.only(left: 30),
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
                       ),
                       const SizedBox(height: 30),
-                     
-
-
-
-    CustomDropdownButton2(
-      buttonDecoration: BoxDecoration(
-        color: Colors.blueGrey[50],
-         borderRadius: BorderRadius.circular(15),
-      ),
-    buttonWidth: 320,
-    buttonHeight: 45,
-      dropdownWidth: 320,
-      icon: const Icon(Icons.arrow_drop_down,size: 25,),
-      hint: 'Select Puzzle',
-      dropdownItems: items,
-      value: selectedValue,
-      onChanged: (value) {
-        setState(() {
-          selectedValue = value;
-        });
-      },
-    ),
-  
-
+                      CustomDropdownButton2(
+                        buttonDecoration: BoxDecoration(
+                          color: Colors.blueGrey[50],
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        buttonWidth: 320,
+                        buttonHeight: 45,
+                        dropdownWidth: 320,
+                        icon: const Icon(
+                          Icons.arrow_drop_down,
+                          size: 25,
+                        ),
+                        hint: 'Select Puzzle',
+                        dropdownItems: items,
+                        value: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value;
+                          });
+                        },
+                      ),
                       const SizedBox(height: 50),
                       Container(
                         decoration: BoxDecoration(
@@ -207,12 +187,8 @@ List<String> items = [
                           ],
                         ),
                         child: ElevatedButton(
-                          child: Container(
-                              width: double.infinity,
-                              height: 50,
-                              child:
-                                  const Center(child: Text("Register"))),
-                          onPressed: () =>   Navigator.pushNamed(context, LoginPage.id),
+                          child: Container(width: double.infinity, height: 50, child: const Center(child: Text("Register"))),
+                          onPressed: () => Navigator.pushNamed(context, LoginPage.id),
                           style: ElevatedButton.styleFrom(
                             primary: Colors.deepPurple,
                             onPrimary: Colors.white,
@@ -247,8 +223,7 @@ List<String> items = [
                         children: [
                           _loginWithButton(image: 'google.png', isActive: true),
                           _loginWithButton(image: 'github.png'),
-                          _loginWithButton(
-                              image: 'facebook.png', isActive: true),
+                          _loginWithButton(image: 'facebook.png', isActive: true),
                         ],
                       ),
                     ],
@@ -310,8 +285,7 @@ class Menu extends StatelessWidget {
             ),
             isActive
                 ? Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.deepPurple,
                       borderRadius: BorderRadius.circular(30),

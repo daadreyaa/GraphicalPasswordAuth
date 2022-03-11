@@ -32,15 +32,15 @@ class MyApp extends StatelessWidget {
       initialRoute: RegisterPage.id,
       routes: {
         RegisterPage.id: (context) => RegisterPage(),
-        SelectOption.id: (context) => const SelectOption(),
-        PatternPage.id: (context) => const PatternPage(),
-        CheckPatternPage.id: (context) => const CheckPatternPage(),
-        ShuffledNumbers.id: (context) => const ShuffledNumbers(),
+        SelectOption.id: (context) => SelectOption(),
+        PatternPage.id: (context) => PatternPage(),
+        CheckPatternPage.id: (context) => CheckPatternPage(),
+        ShuffledNumbers.id: (context) => ShuffledNumbers(),
         LoginPage.id: (context) => LoginPage(),
-        HomePage.id: (context) => const HomePage(),
-        DocsScreen.id:(context) => const DocsScreen(),
-        PuzzlesScreen.id:(context) => const PuzzlesScreen(),
-        GetStarted.id:(context) => const GetStarted(),
+        HomePage.id: (context) => HomePage(),
+        DocsScreen.id: (context) => DocsScreen(),
+        PuzzlesScreen.id: (context) => PuzzlesScreen(),
+        GetStarted.id: (context) => GetStarted(),
       },
     );
   }

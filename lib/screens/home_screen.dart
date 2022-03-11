@@ -21,9 +21,7 @@ class _HomePageState extends State<HomePage> {
         shadowColor: const Color(0xffEBEBEB),
         title: const Text(
           "Graphical Password Auth",
-          style: TextStyle(
-              color: Color.fromARGB(255, 85, 83, 83),
-              fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
         ),
         actions: [
           Row(
@@ -36,10 +34,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Home",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.blue, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -51,10 +46,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Documentation",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -66,10 +58,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Puzzles",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -81,10 +70,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Get Started",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -111,8 +97,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Lottie.network(
-                      "https://assets5.lottiefiles.com/packages/lf20_msdmfngy.json"),
+                  Lottie.network("https://assets5.lottiefiles.com/packages/lf20_msdmfngy.json"),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Column(
@@ -121,16 +106,14 @@ class _HomePageState extends State<HomePage> {
                       children: const [
                         Text(
                           "What is Graphical Password Authentication?",
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi enim nunc faucibus a pellentesque sit amet. Lectus urna duis convallis convallis tellus id interdum. Urna molestie at elementum eu facilisis sed odio morbi. Massa sapien faucibus et molestie. Montes nascetur ridiculus mus mauris vitae ultricies leo. Aliquam sem fringilla ut morbi tincidunt augue.",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w100),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
                         ),
                       ],
                     ),
@@ -143,13 +126,16 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
-                    SizedBox(height: 35,),
+                    SizedBox(
+                      height: 35,
+                    ),
                     Text(
                       "Use Cases",
-                      style: TextStyle(
-                          fontSize: 40, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
-                     SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -215,8 +201,7 @@ class CardWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.16,
         height: MediaQuery.of(context).size.width * 0.16,
         color: Colors.white,
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
@@ -226,7 +211,7 @@ class CardWidget extends StatelessWidget {
           ),
           Text(
             desc,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
           ),
         ]),
       ),

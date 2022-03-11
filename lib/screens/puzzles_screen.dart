@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:graphical_password_auth/screens/pattern_page.dart';
+import 'package:graphical_password_auth/screens/shuffled_numbers.dart';
 import 'docs_screen.dart';
 import 'get_started_screen.dart';
 import 'home_screen.dart';
+
 class PuzzlesScreen extends StatefulWidget {
-  const PuzzlesScreen({ Key? key }) : super(key: key);
+  const PuzzlesScreen({Key? key}) : super(key: key);
   static const String id = "puzzles_screen";
 
   @override
@@ -19,9 +22,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
         shadowColor: const Color(0xffEBEBEB),
         title: const Text(
           "Graphical Password Auth",
-          style: TextStyle(
-              color: Color.fromARGB(255, 85, 83, 83),
-              fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
         ),
         actions: [
           Row(
@@ -34,10 +35,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                 },
                 child: const Text(
                   "Home",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -49,10 +47,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                 },
                 child: const Text(
                   "Documentation",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -64,10 +59,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                 },
                 child: const Text(
                   "Puzzles",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.blue, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -79,10 +71,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                 },
                 child: const Text(
                   "Get Started",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -92,7 +81,75 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
           ),
         ],
       ),
-      
+      body: Container(
+        color: Color.fromARGB(255, 239, 244, 248),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 35,
+            ),
+            Text(
+              "Puzzles Available",
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                InkWell(
+                  // onTap: () => Navigator.pushNamed(context, ),
+                  child: CardWidget(
+                    title: "Polygonal Puzzle",
+                    desc: "more info",
+                  ),
+                ),
+                InkWell(
+                  // onTap: () => Navigator.pushNamed(context, ),
+                  child: CardWidget(
+                    title: "Click Puzzle",
+                    desc: "more info",
+                  ),
+                ),
+                InkWell(
+                  // onTap: () => Navigator.pushNamed(context, ),
+                  child: CardWidget(
+                    title: "Concentric Puzzle",
+                    desc: "more info",
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, PatternPage.id);
+                  },
+                  child: CardWidget(
+                    title: "Padlock",
+                    desc: "more info",
+                  ),
+                ),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(context, ShuffledNumbers.id),
+                  child: CardWidget(
+                    title: "Shuffled Dial",
+                    desc: "more info",
+                  ),
+                ),
+                CardWidget(
+                  title: "Switch Puzzle",
+                  desc: "more info",
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
