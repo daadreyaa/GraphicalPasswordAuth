@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'package:graphical_password_auth/screens/login_screen.dart';
 
+import 'docs_screen.dart';
+import 'get_started_screen.dart';
+import 'home_screen.dart';
+import 'puzzles_screen.dart';
+
 class RegisterPage extends StatefulWidget {
   static const String id = 'register_screen';
 
@@ -13,9 +18,11 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool passwordVisibility = false;
   TextEditingController emailAddressController = TextEditingController();
-
+  TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool _isBackPressedOrTouchedOutSide = false, _isDropDownOpened = false, _isPanDown = false;
+  bool _isBackPressedOrTouchedOutSide = false,
+      _isDropDownOpened = false,
+      _isPanDown = false;
   String _selectedItem = '';
 
   String? selectedValue;
@@ -28,9 +35,74 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: const Color(0xffEBEBEB),
+        title: const Text(
+          "Graphical Password Auth",
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, HomePage.id);
+                },
+                child: const Text(
+                  "Home",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, DocsScreen.id);
+                },
+                child: const Text(
+                  "Documentation",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, PuzzlesScreen.id);
+                },
+                child: const Text(
+                  "Puzzles",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, GetStarted.id);
+                },
+                child: const Text(
+                  "Console",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.2,
+              )
+            ],
+          ),
+        ],
+      ),
       backgroundColor: const Color(0xFFf5f5f5),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 8),
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width / 8),
         children: [
           // MediaQuery.of(context).size.width >= 980
           //     ? Menu()
@@ -55,7 +127,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const Text(
                       "If you already have an account",
-                      style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.black54, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
@@ -64,7 +137,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         const Text(
                           "You can",
-                          style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 15),
                         InkWell(
@@ -73,7 +148,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           },
                           child: const Text(
                             "Sign In!",
-                            style: TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.deepPurple,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -97,11 +174,33 @@ class _RegisterPageState extends State<RegisterPage> {
               //       )
               //     : SizedBox(),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height / 6),
+                padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height / 6),
                 child: Container(
                   width: 320,
                   child: Column(
                     children: [
+                      TextFormField(
+                        controller: userNameController,
+                        decoration: InputDecoration(
+                          hintText: 'Enter your Username',
+                          filled: true,
+                          fillColor: Colors.blueGrey[50],
+                          labelStyle: const TextStyle(fontSize: 12),
+                          contentPadding: const EdgeInsets.only(left: 30),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
                       TextFormField(
                         controller: emailAddressController,
                         decoration: InputDecoration(
@@ -111,11 +210,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           labelStyle: const TextStyle(fontSize: 12),
                           contentPadding: const EdgeInsets.only(left: 30),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
@@ -132,7 +233,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               () => passwordVisibility = !passwordVisibility,
                             ),
                             child: Icon(
-                              passwordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                              passwordVisibility
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
                               color: const Color(0xFF95A1AC),
                               size: 22,
                             ),
@@ -142,37 +245,39 @@ class _RegisterPageState extends State<RegisterPage> {
                           labelStyle: const TextStyle(fontSize: 12),
                           contentPadding: const EdgeInsets.only(left: 30),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blueGrey.shade50),
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
                       ),
                       const SizedBox(height: 30),
-                      CustomDropdownButton2(
-                        buttonDecoration: BoxDecoration(
-                          color: Colors.blueGrey[50],
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        buttonWidth: 320,
-                        buttonHeight: 45,
-                        dropdownWidth: 320,
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          size: 25,
-                        ),
-                        hint: 'Select Puzzle',
-                        dropdownItems: items,
-                        value: selectedValue,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value;
-                          });
-                        },
-                      ),
+                      // CustomDropdownButton2(
+                      //   buttonDecoration: BoxDecoration(
+                      //     color: Colors.blueGrey[50],
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   buttonWidth: 320,
+                      //   buttonHeight: 45,
+                      //   dropdownWidth: 320,
+                      //   icon: const Icon(
+                      //     Icons.arrow_drop_down,
+                      //     size: 25,
+                      //   ),
+                      //   hint: 'Select Puzzle',
+                      //   dropdownItems: items,
+                      //   value: selectedValue,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       selectedValue = value;
+                      //     });
+                      //   },
+                      // ),
                       const SizedBox(height: 50),
                       Container(
                         decoration: BoxDecoration(
@@ -187,8 +292,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           ],
                         ),
                         child: ElevatedButton(
-                          child: Container(width: double.infinity, height: 50, child: const Center(child: Text("Register"))),
-                          onPressed: () => Navigator.pushNamed(context, LoginPage.id),
+                          child: Container(
+                              width: double.infinity,
+                              height: 50,
+                              child: const Center(child: Text("Register"))),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, LoginPage.id),
                           style: ElevatedButton.styleFrom(
                             primary: Colors.deepPurple,
                             onPrimary: Colors.white,
@@ -223,7 +332,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         children: [
                           _loginWithButton(image: 'google.png', isActive: true),
                           _loginWithButton(image: 'github.png'),
-                          _loginWithButton(image: 'facebook.png', isActive: true),
+                          _loginWithButton(
+                              image: 'facebook.png', isActive: true),
                         ],
                       ),
                     ],
@@ -285,7 +395,8 @@ class Menu extends StatelessWidget {
             ),
             isActive
                 ? Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.deepPurple,
                       borderRadius: BorderRadius.circular(30),

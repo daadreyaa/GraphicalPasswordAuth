@@ -24,12 +24,23 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return Scaffold(appBar: AppBar(
+      
+        iconTheme: IconThemeData(color: Colors.grey),
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Shuffled Numbers",
+          style: TextStyle(
+              color: Color.fromARGB(255, 85, 83, 83),
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+      backgroundColor: const Color.fromARGB(255, 239, 244, 248),
       body: Padding(
-        padding: const EdgeInsets.all(28.0),
+        padding: const EdgeInsets.all(100.0),
         child: Container(
-          color: Colors.blue,
+          color:  const Color.fromARGB(255, 239, 244, 248),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -45,7 +56,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                         },
                         child: const Icon(
                           Icons.remove_red_eye,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                       const SizedBox(
@@ -57,7 +68,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                                 ? password
                                 : password.replaceAll(RegExp(r"."), "*")),
                         style: const TextStyle(
-                          color: Colors.pink,
+                          color:Color(0xff041E3C),
                           fontSize: 30.0,
                         ),
                       ),
@@ -95,12 +106,12 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.amber,
+                              color: Color(0xff027DFD),
                              
                               borderRadius: BorderRadius.circular(15),
                             ),
                             
-                            child: Center(child: Text('${numbers[index]}',style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),)),
+                            child: Center(child: Text('${numbers[index]}',style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold,color: Colors.white),)),
                           ),
                         ),
                       );
@@ -108,7 +119,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                   ),
                   RoundedButton(
                     title: 'Submit',
-                    color: Colors.lightBlueAccent,
+                    color: Color(0xff027DFD),
                     onPressed: () {
                       if (password.length < 8) {
                         ScaffoldMessenger.of(context).showSnackBar(

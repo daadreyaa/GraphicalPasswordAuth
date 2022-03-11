@@ -19,8 +19,15 @@ class _PatternPageState extends State<PatternPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: const Text("Big Pattern"),
+        iconTheme: IconThemeData(color: Colors.grey),
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Big Pattern",
+          style: TextStyle(
+              color: Color.fromARGB(255, 85, 83, 83),
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -63,7 +70,8 @@ class _PatternPageState extends State<PatternPage> {
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("pattern is " + (pattern == input ? "correct" : "wrong")),
+                      content: Text("pattern is " +
+                          (pattern == input ? "correct" : "wrong")),
                     ),
                   );
                 }

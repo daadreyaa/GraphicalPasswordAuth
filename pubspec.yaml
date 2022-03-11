@@ -40,6 +40,9 @@ dependencies:
   pattern_lock: ^2.0.0
   adaptive_navbar: ^0.0.2
   lottie: ^1.2.2
+  blur: ^3.1.0
+  pricing_cards: ^0.0.7
+  custom_radio_grouped_button: ^2.1.1
 
 dev_dependencies:
   flutter_test:
