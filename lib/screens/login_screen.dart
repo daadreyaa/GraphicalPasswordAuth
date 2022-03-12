@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:graphical_password_auth/screens/register_screen.dart';
 import 'package:graphical_password_auth/screens/select_option.dart';
 
+import 'docs_screen.dart';
+import 'get_started_screen.dart';
+import 'home_screen.dart';
+import 'puzzles_screen.dart';
+
 class LoginPage extends StatefulWidget {
   static const String id = 'login_screen';
 
@@ -17,6 +22,70 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: const Color(0xffEBEBEB),
+        title: const Text(
+          "Graphical Password Auth",
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, HomePage.id);
+                },
+                child: const Text(
+                  "Home",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, DocsScreen.id);
+                },
+                child: const Text(
+                  "Documentation",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, PuzzlesScreen.id);
+                },
+                child: const Text(
+                  "Puzzles",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, GetStarted.id);
+                },
+                child: const Text(
+                  "Console",
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.2,
+              )
+            ],
+          ),
+        ],
+      ),
       backgroundColor: const Color(0xFFf5f5f5),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 8),
@@ -160,7 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         child: ElevatedButton(
                           child: Container(width: double.infinity, height: 50, child: const Center(child: const Text("Sign In"))),
-                          onPressed: () => Navigator.pushNamed(context, SelectOption.id),
+                          onPressed: () => Navigator.pushNamed(context, HomePage.id),
                           style: ElevatedButton.styleFrom(
                             primary: Colors.deepPurple,
                             onPrimary: Colors.white,

@@ -17,10 +17,10 @@ class DocsScreen extends StatefulWidget {
 class _DocsScreenState extends State<DocsScreen> {
   List items = [
     "item 1",
-    "item 1",
-    "item 1",
-    "item 1",
-    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
   ];
   List content = [
     "content",
@@ -36,7 +36,6 @@ class _DocsScreenState extends State<DocsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: const Color(0xffEBEBEB),
@@ -101,7 +100,7 @@ class _DocsScreenState extends State<DocsScreen> {
                   Navigator.pushNamed(context, GetStarted.id);
                 },
                 child: const Text(
-                  "Get Started",
+                  "Console",
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
@@ -120,6 +119,8 @@ class _DocsScreenState extends State<DocsScreen> {
           Expanded(
             flex: 1,
             child: Container(
+              color: Colors.white,
+              
               child: ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -131,7 +132,6 @@ class _DocsScreenState extends State<DocsScreen> {
                   );
                 },
               ),
-              color: Colors.white,
             ),
           ),
           Expanded(
@@ -142,6 +142,7 @@ class _DocsScreenState extends State<DocsScreen> {
                 padding: const EdgeInsets.all(80.0),
                 child: Container(
                   color: Colors.white,
+                  
                   // child: ListView.builder(
                   //   itemCount: content.length,
                   //   itemBuilder: (BuildContext context, int index) {

@@ -26,12 +26,23 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return Scaffold(appBar: AppBar(
+      
+        iconTheme: IconThemeData(color: Colors.grey),
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Shuffled Numbers",
+          style: TextStyle(
+              color: Color.fromARGB(255, 85, 83, 83),
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+      backgroundColor: const Color.fromARGB(255, 239, 244, 248),
       body: Padding(
-        padding: const EdgeInsets.all(28.0),
+        padding: const EdgeInsets.all(100.0),
         child: Container(
-          color: Colors.blue,
+          color:  const Color.fromARGB(255, 239, 244, 248),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -56,7 +67,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                       Text(
                         (isPasswordSet ? 'Check Password : ' : 'Entered Password : ') + (isObscure ? password : password.replaceAll(RegExp(r"."), "*")),
                         style: const TextStyle(
-                          color: Colors.pink,
+                          color:Color(0xff041E3C),
                           fontSize: 30.0,
                         ),
                       ),
@@ -117,7 +128,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                   ),
                   RoundedButton(
                     title: 'Submit',
-                    color: Colors.lightBlueAccent,
+                    color: Color(0xff027DFD),
                     onPressed: () {
                       if (password.length < 6) {
                         ScaffoldMessenger.of(context).showSnackBar(

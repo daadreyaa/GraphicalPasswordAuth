@@ -70,7 +70,7 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                   Navigator.pushNamed(context, GetStarted.id);
                 },
                 child: const Text(
-                  "Get Started",
+                  "Console",
                   style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -82,18 +82,18 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
         ],
       ),
       body: Container(
-        color: Color.fromARGB(255, 239, 244, 248),
+        color: const Color.fromARGB(255, 239, 244, 248),
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
-            Text(
+            const Text(
               "Puzzles Available",
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -129,19 +129,19 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                   onTap: () {
                     Navigator.pushNamed(context, PatternPage.id);
                   },
-                  child: CardWidget(
+                  child: const CardWidget(
                     title: "Padlock",
                     desc: "more info",
                   ),
                 ),
                 InkWell(
                   onTap: () => Navigator.pushNamed(context, ShuffledNumbers.id),
-                  child: CardWidget(
+                  child: const CardWidget(
                     title: "Shuffled Dial",
                     desc: "more info",
                   ),
                 ),
-                CardWidget(
+                const CardWidget(
                   title: "Switch Puzzle",
                   desc: "more info",
                 ),
