@@ -10,8 +10,10 @@ import 'package:graphical_password_auth/screens/puzzles_screen.dart';
 import 'package:graphical_password_auth/screens/register_screen.dart';
 import 'package:graphical_password_auth/screens/select_option.dart';
 import 'package:graphical_password_auth/screens/shuffled_numbers.dart';
+import 'package:graphical_password_auth/screens/switch_puzzle.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -32,15 +34,16 @@ class MyApp extends StatelessWidget {
       initialRoute: RegisterPage.id,
       routes: {
         RegisterPage.id: (context) => RegisterPage(),
-        SelectOption.id: (context) => SelectOption(),
-        PatternPage.id: (context) => PatternPage(),
-        CheckPatternPage.id: (context) => CheckPatternPage(),
-        ShuffledNumbers.id: (context) => ShuffledNumbers(),
+        SelectOption.id: (context) => const SelectOption(),
+        PatternPage.id: (context) => const PatternPage(),
+        CheckPatternPage.id: (context) => const CheckPatternPage(),
+        ShuffledNumbers.id: (context) => const ShuffledNumbers(),
         LoginPage.id: (context) => LoginPage(),
-        HomePage.id: (context) => HomePage(),
-        DocsScreen.id: (context) => DocsScreen(),
-        PuzzlesScreen.id: (context) => PuzzlesScreen(),
-        GetStarted.id: (context) => GetStarted(),
+        HomePage.id: (context) => const HomePage(),
+        DocsScreen.id: (context) => const DocsScreen(),
+        PuzzlesScreen.id: (context) => const PuzzlesScreen(),
+        GetStarted.id: (context) => const GetStarted(),
+        SwitchPuzzle.id: (context) => const SwitchPuzzle(),
       },
     );
   }

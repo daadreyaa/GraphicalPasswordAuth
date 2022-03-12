@@ -13,6 +13,8 @@ class ShuffledNumbers extends StatefulWidget {
 class _ShuffledNumbersState extends State<ShuffledNumbers> {
   late List<int> numbers;
   String password = '';
+  bool isPasswordSet = false;
+  late String savedPassword;
   bool isObscure = false;
 
   @override
@@ -43,8 +45,8 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                             isObscure = !isObscure;
                           });
                         },
-                        child: const Icon(
-                          Icons.remove_red_eye,
+                        child: Icon(
+                          isObscure ? Icons.visibility : Icons.visibility_off,
                           color: Colors.white,
                         ),
                       ),
@@ -52,10 +54,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                         width: 20.0,
                       ),
                       Text(
-                        'Entered Password : ' +
-                            (isObscure
-                                ? password
-                                : password.replaceAll(RegExp(r"."), "*")),
+                        (isPasswordSet ? 'Check Password : ' : 'Entered Password : ') + (isObscure ? password : password.replaceAll(RegExp(r"."), "*")),
                         style: const TextStyle(
                           color: Colors.pink,
                           fontSize: 30.0,
@@ -65,8 +64,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                   ),
                   const SizedBox(height: 40.0),
                   GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 5,
                       childAspectRatio: 1.5,
                     ),
@@ -96,21 +94,32 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.amber,
-                             
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            
-                            child: Center(child: Text('${numbers[index]}',style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),)),
+                            child: Center(
+                                child: Text(
+                              '${numbers[index]}',
+                              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                            )),
                           ),
                         ),
                       );
                     },
                   ),
                   RoundedButton(
+                    title: 'Clear',
+                    color: Colors.lightBlueAccent,
+                    onPressed: () {
+                      setState(() {
+                        password = '';
+                      });
+                    },
+                  ),
+                  RoundedButton(
                     title: 'Submit',
                     color: Colors.lightBlueAccent,
                     onPressed: () {
-                      if (password.length < 8) {
+                      if (password.length < 6) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text(
@@ -119,8 +128,22 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                             ),
                           ),
                         );
+                      } else if (!isPasswordSet) {
+                        setState(() {
+                          isPasswordSet = true;
+                          savedPassword = password;
+                          password = '';
+                        });
+                        // Navigator.pop(context);
                       } else {
-                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              (password == savedPassword).toString(),
+                              style: const TextStyle(color: Colors.red),
+                            ),
+                          ),
+                        );
                       }
                     },
                   ),

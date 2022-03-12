@@ -55,15 +55,21 @@ class _PatternPageState extends State<PatternPage> {
 
                 if (pattern == null) {
                   pattern = input;
+                  print(pattern);
+                  print(pattern.runtimeType);
+                  print(input);
+                  print(input.runtimeType);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("pattern is $input"),
                     ),
                   );
                 } else {
+                  print(input);
+                  print(pattern);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("pattern is " + (pattern == input ? "correct" : "wrong")),
+                      content: Text("pattern is " + (listEquals(pattern, input) ? "correct" : "wrong")),
                     ),
                   );
                 }

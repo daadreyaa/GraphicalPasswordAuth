@@ -1,6 +1,5 @@
 import 'package:dropdown_button2/custom_dropdown_button2.dart';
 import 'package:flutter/material.dart';
-
 import 'package:graphical_password_auth/screens/login_screen.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -314,7 +313,7 @@ class Menu extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {
-          Navigator.pushNamed(context, LoginPage.id);
+          // Navigator.pushNamed(context, LoginPage.id);
         },
         child: const Text(
           'Sign In',

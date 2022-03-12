@@ -3,6 +3,7 @@ import 'package:graphical_password_auth/components/rounded_button.dart';
 import 'package:graphical_password_auth/screens/check_pattern_page.dart';
 import 'package:graphical_password_auth/screens/pattern_page.dart';
 import 'package:graphical_password_auth/screens/shuffled_numbers.dart';
+import 'package:graphical_password_auth/screens/switch_puzzle.dart';
 
 class SelectOption extends StatefulWidget {
   const SelectOption({Key? key}) : super(key: key);
@@ -23,28 +24,19 @@ class _SelectOptionState extends State<SelectOption> {
           RoundedButton(
             title: 'Set Pattern',
             color: Colors.lightBlueAccent,
-            onPressed: () => Navigator.pushNamed(
-              context,
-              PatternPage.id,
-            ),
+            onPressed: () => Navigator.pushNamed(context, PatternPage.id),
           ),
           const SizedBox(height: 40),
-          // RoundedButton(
-          //   title: 'Check Pattern',
-          //   color: Colors.lightBlueAccent,
-          //   onPressed: () => Navigator.pushNamed(
-          //     context,
-          //     CheckPatternPage.id,
-          //   ),
-          // ),
-          // const SizedBox(height: 40),
           RoundedButton(
             title: 'Shuffled Numbers',
             color: Colors.lightBlueAccent,
-            onPressed: () => Navigator.pushNamed(
-              context,
-              ShuffledNumbers.id,
-            ),
+            onPressed: () => Navigator.pushNamed(context, ShuffledNumbers.id),
+          ),
+          const SizedBox(height: 40),
+          RoundedButton(
+            title: 'Switch',
+            color: Colors.lightBlueAccent,
+            onPressed: () => Navigator.pushNamed(context, SwitchPuzzle.id),
           ),
         ],
       ),
