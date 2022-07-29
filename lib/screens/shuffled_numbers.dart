@@ -26,23 +26,21 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      
+    return Scaffold(
+      appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.grey),
         automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
         title: const Text(
           "Shuffled Numbers",
-          style: TextStyle(
-              color: Color.fromARGB(255, 85, 83, 83),
-              fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
         ),
       ),
       backgroundColor: const Color.fromARGB(255, 239, 244, 248),
       body: Padding(
-        padding: const EdgeInsets.all(100.0),
+        padding: const EdgeInsets.all(50.0),
         child: Container(
-          color:  const Color.fromARGB(255, 239, 244, 248),
+          color: const Color.fromARGB(255, 239, 244, 248),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -67,7 +65,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                       Text(
                         (isPasswordSet ? 'Check Password : ' : 'Entered Password : ') + (isObscure ? password : password.replaceAll(RegExp(r"."), "*")),
                         style: const TextStyle(
-                          color:Color(0xff041E3C),
+                          color: Color(0xff041E3C),
                           fontSize: 30.0,
                         ),
                       ),
@@ -104,7 +102,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.amber,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Center(
@@ -119,7 +117,7 @@ class _ShuffledNumbersState extends State<ShuffledNumbers> {
                   ),
                   RoundedButton(
                     title: 'Clear',
-                    color: Colors.lightBlueAccent,
+                    color: Colors.blue,
                     onPressed: () {
                       setState(() {
                         password = '';

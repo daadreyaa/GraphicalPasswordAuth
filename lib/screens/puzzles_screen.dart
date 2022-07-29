@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphical_password_auth/screens/pattern_page.dart';
 import 'package:graphical_password_auth/screens/shuffled_numbers.dart';
+import 'package:graphical_password_auth/screens/switch_puzzle.dart';
 import 'docs_screen.dart';
 import 'get_started_screen.dart';
 import 'home_screen.dart';
@@ -141,9 +142,12 @@ class _PuzzlesScreenState extends State<PuzzlesScreen> {
                     desc: "more info",
                   ),
                 ),
-                const CardWidget(
-                  title: "Switch Puzzle",
-                  desc: "more info",
+                InkWell(
+                  onTap: () => Navigator.pushNamed(context, SwitchPuzzle.id),
+                  child: const CardWidget(
+                    title: "Switch Puzzle",
+                    desc: "more info",
+                  ),
                 ),
               ],
             )

@@ -24,9 +24,7 @@ class _HomePageState extends State<HomePage> {
         shadowColor: const Color(0xffEBEBEB),
         title: const Text(
           "Graphical Password Auth",
-          style: TextStyle(
-              color: Color.fromARGB(255, 85, 83, 83),
-              fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 85, 83, 83), fontWeight: FontWeight.bold),
         ),
         actions: [
           Row(
@@ -39,10 +37,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Home",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.blue, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -54,10 +49,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Documentation",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -69,10 +61,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Puzzles",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               const SizedBox(
@@ -84,10 +73,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text(
                   "Console",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -137,8 +123,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Lottie.network(
-                      "https://assets5.lottiefiles.com/packages/lf20_msdmfngy.json"),
+                  Lottie.network("https://assets5.lottiefiles.com/packages/lf20_msdmfngy.json"),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Column(
@@ -147,18 +132,14 @@ class _HomePageState extends State<HomePage> {
                       children: const [
                         Text(
                           "What is Graphical Password Authentication?",
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi enim nunc faucibus a pellentesque sit amet. Lectus urna duis convallis convallis tellus id interdum. Urna molestie at elementum eu facilisis sed odio morbi. Massa sapien faucibus et molestie. Montes nascetur ridiculus mus mauris vitae ultricies leo. Aliquam sem fringilla ut morbi tincidunt augue.",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w100,
-                              color: Colors.grey),
+                          "A graphical password or graphical user authentication is a form of authentication using images rather than letters, digits, or special characters. The type of images used and the ways in which users interact with them vary between implementations.",
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w100, color: Colors.grey),
                         ),
                       ],
                     ),
@@ -176,8 +157,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Text(
                       "Use Cases",
-                      style:
-                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 15,
@@ -186,16 +166,16 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "Attack resistent",
+                          desc: "",
                         ),
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "No more shoulder surfing",
+                          desc: "",
                         ),
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "Easy to remember , Hard to guess",
+                          desc: "",
                         ),
                       ],
                     ),
@@ -203,16 +183,16 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "User friendly",
+                          desc: "",
                         ),
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "More secure",
+                          desc: "",
                         ),
                         CardWidget(
-                          title: "Hello",
-                          desc: "world",
+                          title: "More complex to crack",
+                          desc: "",
                         ),
                       ],
                     )
@@ -224,27 +204,27 @@ class _HomePageState extends State<HomePage> {
               height: 500,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [ const SizedBox(
-                      height: 35,
-                    ),
-                    const Text(
-                      "Pricing",
-                      style:
-                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                children: [
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  const Text(
+                    "Pricing",
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   PricingCards(
                     pricingCards: [
                       PricingCard(
                         cardColor: Color.fromARGB(255, 239, 244, 248),
-                        priceStyle:  const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                        priceStyle: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                         titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         subPriceStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        billedTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
+                        billedTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.grey),
                         title: 'Monthly',
-                        price: '\$ 9.99',
+                        price: '\$ 4.99',
                         subPriceText: '\/mo',
                         billedText: 'Billed monthly',
                         onPress: () {
@@ -253,16 +233,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                       PricingCard(
                         cardColor: Color.fromARGB(255, 239, 244, 248),
-                        priceStyle:  const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                        priceStyle: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                         titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         subPriceStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        billedTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
-                        title: 'Monthly',
-                        price: '\$ 59.99',
+                        billedTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.grey),
+                        title: 'Yearly',
+                        price: '\$ 49.99',
                         subPriceText: '\/mo',
                         billedText: 'Billed anually',
-                        
-                        
                         onPress: () {
                           // make your business
                         },
@@ -296,8 +274,7 @@ class CardWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.16,
         height: MediaQuery.of(context).size.width * 0.16,
         color: Colors.white,
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
