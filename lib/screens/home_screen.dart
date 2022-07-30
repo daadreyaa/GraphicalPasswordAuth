@@ -6,6 +6,7 @@ import 'package:graphical_password_auth/screens/puzzles_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:blur/blur.dart';
 import 'package:pricing_cards/pricing_cards.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,6 +17,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+// String url1 = "http://localhost:3000/index.html";
+
+//  launchUrlString(
+
+//     url1,
+//     {LaunchMode mode = LaunchMode.platformDefault,
+//     WebViewConfiguration webViewConfiguration = const WebViewConfiguration(),
+//     String? webOnlyWindowName}
+
+// )
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +59,7 @@ class _HomePageState extends State<HomePage> {
               ),
               InkWell(
                 onTap: () {
+                //  _launchUrl();
                   Navigator.pushNamed(context, DocsScreen.id);
                 },
                 child: const Text(

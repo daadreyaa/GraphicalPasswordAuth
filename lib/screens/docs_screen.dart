@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:graphical_password_auth/components/docs.dart';
+import 'package:markdown/markdown.dart' as markdown;
 
 import 'get_started_screen.dart';
 import 'home_screen.dart';
@@ -36,6 +39,7 @@ class _DocsScreenState extends State<DocsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: Container(child: Text("hello")),
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: const Color(0xffEBEBEB),
@@ -114,53 +118,57 @@ class _DocsScreenState extends State<DocsScreen> {
           ),
         ],
       ),
-      body: Row(
-        children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.white,
+      body: 
+     Container(
+      child: Markdown(data: documentation),
+     ),
+      // body: Row(
+      //   children: [
+      //     Expanded(
+      //       flex: 1,
+      //       child: Container(
+      //         color: Colors.white,
               
-              child: ListView.builder(
-                itemCount: items.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      title: Text(items[index]),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              color: const Color.fromARGB(249, 228, 234, 245),
-              child: Padding(
-                padding: const EdgeInsets.all(80.0),
-                child: Container(
-                  color: Colors.white,
+      //         child: ListView.builder(
+      //           itemCount: items.length,
+      //           itemBuilder: (BuildContext context, int index) {
+      //             return Padding(
+      //               padding: const EdgeInsets.all(8.0),
+      //               child: ListTile(
+      //                 title: Text(items[index]),
+      //               ),
+      //             );
+      //           },
+      //         ),
+      //       ),
+      //     ),
+      //     Expanded(
+      //       flex: 5,
+      //       child: Container(
+      //         color: const Color.fromARGB(249, 228, 234, 245),
+      //         child: Padding(
+      //           padding: const EdgeInsets.all(80.0),
+      //           child: Container(
+      //             color: Colors.white,
                   
-                  // child: ListView.builder(
-                  //   itemCount: content.length,
-                  //   itemBuilder: (BuildContext context, int index) {
-                  //     return Padding(
-                  //       padding: const EdgeInsets.all(8.0),
-                  //       child: ListTile(
-                  //         title: Text(content[index]),
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
-                  child: Column(children: const [Text("data")]),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+      //             // child: ListView.builder(
+      //             //   itemCount: content.length,
+      //             //   itemBuilder: (BuildContext context, int index) {
+      //             //     return Padding(
+      //             //       padding: const EdgeInsets.all(8.0),
+      //             //       child: ListTile(
+      //             //         title: Text(content[index]),
+      //             //       ),
+      //             //     );
+      //             //   },
+      //             // ),
+      //             child: Column(children: const [Text("data")]),
+      //           ),
+      //         ),
+      //       ),
+      //     )
+      //   ],
+      // ),
     );
   }
 }

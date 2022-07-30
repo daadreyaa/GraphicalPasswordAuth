@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:graphical_password_auth/components/rounded_button.dart';
@@ -14,14 +16,14 @@ class GetStarted extends StatefulWidget {
 
 class _GetStartedState extends State<GetStarted> {
   bool passwordVisibility = false;
-  List puzzles = ["1", "2", "3"];
+ List puzzles_selected=[];
   Map<String, bool> values = {
     'foo': true,
     'bar': false,
   };
 
   TextEditingController domainNameController = TextEditingController();
-  var email, passwd, domain;
+  var  domain;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -198,7 +200,9 @@ class _GetStartedState extends State<GetStarted> {
                   "Switch Puzzle",
                 ],
                 checkBoxButtonValues: (values) {
-                  print(values);
+                  puzzles_selected = values;
+                  // print(values);
+
                 },
 
                 horizontal: false,
@@ -217,7 +221,12 @@ class _GetStartedState extends State<GetStarted> {
           RoundedButton(
             title: "Submit",
             color: Colors.blue,
-            onPressed: () {},
+            onPressed: () {
+domain = domainNameController.text;
+log("Domain name = $domain");
+log("Puzzles selected = $puzzles_selected");
+
+            },
           )
         ]),
       ),
