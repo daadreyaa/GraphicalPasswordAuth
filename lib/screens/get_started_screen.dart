@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:graphical_password_auth/components/rounded_button.dart';
@@ -16,14 +15,24 @@ class GetStarted extends StatefulWidget {
 
 class _GetStartedState extends State<GetStarted> {
   bool passwordVisibility = false;
- List puzzles_selected=[];
+  bool apikeyVisible = false;
+  List puzzles_selected = [];
   Map<String, bool> values = {
     'foo': true,
     'bar': false,
   };
 
   TextEditingController domainNameController = TextEditingController();
-  var  domain;
+  TextEditingController apiController = TextEditingController();
+  var domain;
+
+// @override
+//   void initState(){
+//   super.initState();
+//  domainNameController = TextEditingController();
+//     apiController = TextEditingController();
+// }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,7 +211,6 @@ class _GetStartedState extends State<GetStarted> {
                 checkBoxButtonValues: (values) {
                   puzzles_selected = values;
                   // print(values);
-
                 },
 
                 horizontal: false,
@@ -222,12 +230,75 @@ class _GetStartedState extends State<GetStarted> {
             title: "Submit",
             color: Colors.blue,
             onPressed: () {
-domain = domainNameController.text;
-log("Domain name = $domain");
-log("Puzzles selected = $puzzles_selected");
-
+              apikeyVisible = true;
+              domain = domainNameController.text;
+              log("Domain name = $domain");
+              log("Puzzles selected = $puzzles_selected");
+              log("apikey = $apikeyVisible");
+              setState(() {});
             },
-          )
+          ),
+          apikeyVisible
+              ? Container(
+                  child: Row(
+                  children: [
+                    Container(
+                        width: 100, height: 100, child: Text("API KEY :")),
+                    Container(
+                      width: 400,
+                      height: 100,
+                      child: TextFormField(
+                        
+                        controller: apiController..text = "123jkalskjdlkjkl12jkljdlkasjlkasdj",
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.blueGrey[50],
+                          labelStyle: const TextStyle(fontSize: 12),
+                          contentPadding: const EdgeInsets.only(left: 30),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blueGrey.shade50),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ))
+              : Text(""),
+
+          // Visibility(
+          //   visible: true,
+          //   child: Container(child: Row(
+          //   children: [
+          //     Text("API KEY"),
+          //   //   TextFormField(
+          //   //     readOnly: true,
+          //   //     // initialValue: "aphjdskjfh123123klsjdflksjf",
+          //   //   controller: apiController,
+          //   //   decoration: InputDecoration(
+
+          //   //     filled: true,
+          //   //     fillColor: Colors.blueGrey[50],
+          //   //     labelStyle: const TextStyle(fontSize: 12),
+          //   //     contentPadding: const EdgeInsets.only(left: 30),
+          //   //     enabledBorder: OutlineInputBorder(
+          //   //       borderSide: BorderSide(color: Colors.blueGrey.shade50),
+          //   //       borderRadius: BorderRadius.circular(15),
+          //   //     ),
+          //   //     focusedBorder: OutlineInputBorder(
+          //   //       borderSide: BorderSide(color: Colors.blueGrey.shade50),
+          //   //       borderRadius: BorderRadius.circular(15),
+          //   //     ),
+          //   //   ),
+          //   // ),
+          //   ],
+          // ),))
         ]),
       ),
     );
