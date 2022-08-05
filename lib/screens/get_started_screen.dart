@@ -1,10 +1,13 @@
+import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:graphical_password_auth/components/rounded_button.dart';
 import 'docs_screen.dart';
 import 'home_screen.dart';
 import 'puzzles_screen.dart';
+import 'package:http/http.dart' as http;
 
 class GetStarted extends StatefulWidget {
   const GetStarted({Key? key}) : super(key: key);
@@ -26,12 +29,25 @@ class _GetStartedState extends State<GetStarted> {
   TextEditingController apiController = TextEditingController();
   var domain;
 
-// @override
-//   void initState(){
-//   super.initState();
-//  domainNameController = TextEditingController();
-//     apiController = TextEditingController();
-// }
+// final body = {
+//   'name': 'Bob',
+//   'age': '87',
+// };
+// final jsonString = json.encode(body);
+// final uri = Uri.http('http://127.0.0.1:5000', '/hmm');
+// final headers = {HttpHeaders.contentTypeHeader: 'application/json'};
+// final response = await http.post(uri, headers: headers, body: jsonString);
+
+  postData() async {
+    try {
+      var response = await http.post(Uri.https('reqres.in','api/users'),
+          body: { "name": "akhash"});
+      print(response.body);
+       print(response.statusCode);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -222,55 +238,68 @@ class _GetStartedState extends State<GetStarted> {
               ),
             ],
           ),
-
+          apikeyVisible
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 150,
+                        height: 100,
+                        child: Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text(
+                            "API KEY :",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 400,
+                        height: 100,
+                        child: TextFormField(
+                          enabled: false,
+                          controller: apiController
+                            ..text = "123jkalskjdlkjkl12jkljdlkasjlkasdj",
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.blueGrey[50],
+                            labelStyle: const TextStyle(fontSize: 12),
+                            contentPadding: const EdgeInsets.only(left: 30),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.blueGrey.shade50),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.blueGrey.shade50),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              : const Text(""),
           const SizedBox(
             height: 20,
           ),
           RoundedButton(
             title: "Submit",
             color: Colors.blue,
-            onPressed: () {
+            onPressed: () async {
               apikeyVisible = true;
               domain = domainNameController.text;
               log("Domain name = $domain");
               log("Puzzles selected = $puzzles_selected");
               log("apikey = $apikeyVisible");
               setState(() {});
+              postData();
             },
           ),
-          apikeyVisible
-              ? Container(
-                  child: Row(
-                  children: [
-                    Container(
-                        width: 100, height: 100, child: Text("API KEY :")),
-                    Container(
-                      width: 400,
-                      height: 100,
-                      child: TextFormField(
-                        
-                        controller: apiController..text = "123jkalskjdlkjkl12jkljdlkasjlkasdj",
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.blueGrey[50],
-                          labelStyle: const TextStyle(fontSize: 12),
-                          contentPadding: const EdgeInsets.only(left: 30),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blueGrey.shade50),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ))
-              : Text(""),
 
           // Visibility(
           //   visible: true,
